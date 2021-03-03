@@ -1,4 +1,5 @@
 ﻿using Castle.DynamicProxy;
+using Core.Aspects.Autofac.Performance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Core.Utilities.Interceptors
             classAttributes.AddRange(methodAttributes);
             //Otomatik olarak sistemdeki bütün methodları loga dahil et
             //classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger)));
+            //classAttributes.Add(new PerformanceAspect(5)); //5 saniye yanıt vermezse 
 
             return classAttributes.OrderBy(x => x.Priority).ToArray();
         }
