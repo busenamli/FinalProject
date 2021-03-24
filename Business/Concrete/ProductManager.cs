@@ -33,7 +33,7 @@ namespace Business.Concrete
         }
 
         //Claim
-        [SecuredOperation("product.add,admin")]
+        //[SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
@@ -59,7 +59,7 @@ namespace Business.Concrete
             //İş Kodları
             //Yetkisi var mı?
 
-            if (DateTime.Now.Hour == 15)
+            if (DateTime.Now.Hour == 12)
             {
                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
